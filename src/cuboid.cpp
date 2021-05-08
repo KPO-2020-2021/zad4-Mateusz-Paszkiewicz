@@ -51,3 +51,17 @@ const double &Cuboid::operator () (unsigned int pointNum, unsigned int axis) con
     }
       return point[pointNum][axis];
 }
+
+
+double &Cuboid::operator () (unsigned int pointNum, unsigned int axis)
+{
+    if (axis >= 3) {
+        std::cout << "Error: Wrong parameter. Only 3 axis in a solid";
+        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+    }
+      if (pointNum >= 8) {
+        std::cout << "Error: Wrong parameter. Only 8 points in a cuboid";
+        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+    }
+      return point[pointNum][axis];
+}

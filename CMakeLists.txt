@@ -40,6 +40,8 @@ find_lto(CXX)
 set(SOURCES          # All .cpp files in src/
     src/rectangle
     src/cuboid
+    src/handling
+    src/lacze_do_gnuplota
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/testrunner.cpp
