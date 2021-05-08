@@ -15,4 +15,8 @@ bool CoordsReadFromFile(const char *, Cuboid &);
 
 void CoordsToStream(std::ostream&, Rectangle &);
 
+void CoordsToStream(std::ostream&, Cuboid &);
+
 bool SaveCoordsToFile( const char *,  Rectangle &);
+
+bool SaveCoordsToFile( const char *,  Cuboid &);

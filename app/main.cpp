@@ -40,36 +40,51 @@ int main() {
   // do zadania Rotacja 2D
 
 
+
+  std::cout<<"2D GNUPlot rectangle Translation program."<<std::endl;  //introduction
+  std::cout<<"Press h for help."<<std::endl;
+
+
+
+  int Mode;
   PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
 
-   //-------------------------------------------------------
-   //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
-   //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-   //  na dwa sposoby:
-   //   1. Rysowane jako linia ciagl o grubosci 2 piksele
-   //
-  Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Ciagly,3);
-   //
-   //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
-   //      których połowa długości boku wynosi 2.
-   //
-  Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Punktowy,3);
-   //
-   //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
-   //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
-   //  jako wspolrzedne punktow podajemy tylko x,y.
-   //
-  Lacze.ZmienTrybRys(PzG::TR_3D);
+  //Our objects initialization:
+  Cuboid ObjectCub=Cuboid();
+  Rectangle ObjectRect=Rectangle();
 
 
-  Rectangle rect=Rectangle(); //constructor of class Rectangle
-  CoordsReadFromFile("../datasets/prostokat.dat", rect);
+  std::cout<<"Select, your mode:"<<std::endl;
+  std::cout<<"1 - 2D mode"<<std::endl;
+  std::cout<<"2 - 3D mode"<<std::endl;
+
+  std::cin>>Mode;
+
+  if(Mode==2){
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Ciagly,3);
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Punktowy,3);
+    Lacze.ZmienTrybRys(PzG::TR_3D);
+    CoordsReadFromFile("../datasets/figure.dat", ObjectCub);
+  }
+  else
+  if(Mode==1){
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Ciagly,2);
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Punktowy,2);
+    Lacze.ZmienTrybRys(PzG::TR_2D);
+    CoordsReadFromFile("../datasets/figure.dat", ObjectRect);
+  }
+  else {
+    std::cout<<"Error! Mode not recognized"<<std::endl;
+    std::cout<<"setting to 2D as default"<<std::endl;
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Ciagly,2);
+    Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Punktowy,2);
+    Lacze.ZmienTrybRys(PzG::TR_2D);
+    CoordsReadFromFile("../datasets/figure.dat", ObjectRect);
+  }
+
+
   char option;
-
-  std::cout<<"2D GNUPlot rectangle Translation program."<<std::endl;
-  std::cout<<"Press h for help."<<std::endl;
-
 
   Menu:
 
@@ -80,34 +95,86 @@ int main() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 
   switch (option) {
+    case 'm':
+    {
+      std::cout<<"Change mode to:"<<std::endl;
+      std::cout<<"1 - 2D mode"<<std::endl;
+      std::cout<<"2 - 3D mode"<<std::endl;
+
+      std::cin>>Mode;
+
+      if(Mode==1) {
+        Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Ciagly,2);
+        Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Punktowy,2);
+        Lacze.ZmienTrybRys(PzG::TR_2D);
+
+        std::cout<<"Changed mode to 2D"<<std::endl;
+
+        goto Menu;
+      }
+      if(Mode==2) {
+        Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Ciagly,3);
+        Lacze.DodajNazwePliku("../datasets/figure.dat",PzG::RR_Punktowy,3);
+        Lacze.ZmienTrybRys(PzG::TR_3D);
+
+        std::cout<<"Changed mode to 3D"<<std::endl;
+
+        goto Menu;
+      }
+      else
+        std::cout<<"Error! Mode not recognized."<<std::endl;
+
+      goto Menu;
+
+    }
     case 'h':
     {
       std::cout<<"v - vector translation "<<std::endl;
       std::cout<<"a - isometric translation "<<std::endl;
-      std::cout<<"d - display rectangle in GNUPlot "<<std::endl;
-      std::cout<<"s - display points of the rectangle "<<std::endl;
+      std::cout<<"d - display figure in GNUPlot "<<std::endl;
+      std::cout<<"s - display coordinates of the figure "<<std::endl;
       std::cout<<"q - exit "<<std::endl;
 
       goto Menu;
     }
     case 'v':
     {
-      double input[2];
+      if(Mode==1){
+        double input[2];
 
-      std::cout<<"please pass the vector values [x,y]:"<<std::endl;
+        std::cout<<"please pass the vector values [x,y]:"<<std::endl;
 
-      std::cin>>input[0]; std::cin>>input[1];
-      Vector<double,2> vec= Vector<double, 2>(input);
+        std::cin>>input[0]; std::cin>>input[1];
+        Vector<double,2> vec= Vector<double, 2>(input);
 
-      rect=rect+vec;
+        ObjectRect=ObjectRect+vec;
 
-      if (!SaveCoordsToFile("../datasets/prostokat.dat",rect))
-        std::cerr<<"Err: Cannot save coords to file";
-      else
-      {
-        std::cout<<std::endl;
-        std::cout<<"Done!"<<std::endl<<std::endl;
-      }
+        if (!SaveCoordsToFile("../datasets/figure.dat",ObjectRect))
+          std::cerr<<"Err: Cannot save coords to file";
+          else
+          {
+            std::cout<<std::endl;
+            std::cout<<"Done!"<<std::endl<<std::endl;
+          }
+        }
+        else{
+          double input[3];
+
+          std::cout<<"please pass the vector values [x,y,z]:"<<std::endl;
+
+          std::cin>>input[0]; std::cin>>input[1]; std::cin>>input[2];
+          Vector<double,3> vec= Vector<double, 3>(input);
+
+          ObjectCub=ObjectCub+vec;
+
+          if (!SaveCoordsToFile("../datasets/figure.dat",ObjectCub))
+            std::cerr<<"Err: Cannot save coords to file";
+            else
+            {
+              std::cout<<std::endl;
+              std::cout<<"Done!"<<std::endl<<std::endl;
+            }
+        }
 
       goto Menu;
     }
@@ -119,15 +186,31 @@ int main() {
       std::cout<<"Please pass the value of angle:";
       std::cin>>angle;
 
-      rect.AngleTrans(angle*M_PI/180);
 
-      if (!SaveCoordsToFile("../datasets/prostokat.dat",rect))
-        std::cerr<<"Err: Cannot save coords to file";
-      else
-      {
-        std::cout<<std::endl;
-        std::cout<<"Done!"<<std::endl<<std::endl;
+      if(Mode==1){
+        ObjectRect.AngleTrans(angle*M_PI/180);
+
+        if (!SaveCoordsToFile("../datasets/figure.dat",ObjectRect))
+          std::cerr<<"Err: Cannot save coords to file";
+          else
+          {
+            std::cout<<std::endl;
+            std::cout<<"Done!"<<std::endl<<std::endl;
+          }
       }
+      else{
+        ObjectRect.AngleTrans(angle*M_PI/180);
+
+        if (!SaveCoordsToFile("../datasets/figure.dat",ObjectCub))
+          std::cerr<<"Err: Cannot save coords to file";
+          else
+          {
+            std::cout<<std::endl;
+            std::cout<<"Done!"<<std::endl<<std::endl;
+          }
+      }
+
+
 
       goto Menu;
     }
@@ -143,7 +226,11 @@ int main() {
     {
       std::cout<<std::endl;
       std::cout<<"Displaying coords..."<<std::endl<<std::endl;
-      CoordsToStream(std::cout, rect);
+
+      if(Mode==1)
+        CoordsToStream(std::cout, ObjectRect);
+      else
+        CoordsToStream(std::cout, ObjectCub);
 
       goto Menu;
     }

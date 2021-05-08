@@ -107,8 +107,11 @@ void CoordsToStream( std::ostream& StrmWy, Cuboid &Cub)
   StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << Cub(0,0)
          << std::setw(16) << std::fixed << std::setprecision(10) << Cub(0,1)
          << std::setw(16) << std::fixed << std::setprecision(10) << Cub(0,2) << std::endl;
-                             // Jeszcze raz zapisujemy pierwszy punkt,
-                             // aby gnuplot narysowal zamkniętą linię.
+  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << Cub(1,0)
+         << std::setw(16) << std::fixed << std::setprecision(10) << Cub(1,1)
+         << std::setw(16) << std::fixed << std::setprecision(10) << Cub(1,2) << std::endl;
+                             // Jeszcze raz zapisujemy pierwsze dwa punkt,
+                             // aby gnuplot narysowal zamkniętą figure.
 }
 
 /*!
@@ -131,6 +134,24 @@ bool SaveCoordsToFile( const char *sNazwaPliku,  Rectangle &Rect)
   }
 
   CoordsToStream(StrmPlikowy, Rect);
+
+  StrmPlikowy.close();
+  return !StrmPlikowy.fail();
+}
+
+
+bool SaveCoordsToFile( const char *sNazwaPliku,  Cuboid &Cub)
+{
+  std::ofstream  StrmPlikowy;
+
+  StrmPlikowy.open(sNazwaPliku);
+  if (!StrmPlikowy.is_open())  {
+    std::cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << std::endl
+	 << ":(  nie powiodla sie." << std::endl;
+    return false;
+  }
+
+  CoordsToStream(StrmPlikowy, Cub);
 
   StrmPlikowy.close();
   return !StrmPlikowy.fail();
