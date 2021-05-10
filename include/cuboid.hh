@@ -35,4 +35,6 @@ public:
 
   double &operator () (unsigned int, unsigned int);
 
+  Cuboid AngleTrans(double Angle, char axis);
+
 };

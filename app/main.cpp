@@ -182,8 +182,10 @@ int main() {
     case 'a':
     {
       double angle;
+      char axis;
 
-      std::cout<<"Please pass the value of angle:";
+      std::cout<<"Please pass axis (x, y or z) and the value of angle:";
+      std::cin>>axis;
       std::cin>>angle;
 
 
@@ -199,7 +201,7 @@ int main() {
           }
       }
       else{
-        ObjectRect.AngleTrans(angle*M_PI/180);
+        ObjectCub.AngleTrans(angle*M_PI/180,axis);
 
         if (!SaveCoordsToFile("../datasets/figure.dat",ObjectCub))
           std::cerr<<"Err: Cannot save coords to file";
