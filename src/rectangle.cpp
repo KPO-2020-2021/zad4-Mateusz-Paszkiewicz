@@ -26,6 +26,14 @@ Rectangle::Rectangle(double tmp[4][2]) {
   }
 }
 
+/*!
+ * funktor () prostokata
+*
+*\param[in] (*this) rectangle of the coordinate to be extracted
+*\param[in] pointNum - number of the wanted point
+*\param[in] axis - axis of the wanted coordinate
+*\retval const value of the coordinate of indicated values
+*/
 double &Rectangle::operator () (unsigned int point, unsigned int axis){
 
     if (point > 4) {
@@ -41,6 +49,13 @@ double &Rectangle::operator () (unsigned int point, unsigned int axis){
     return rect[point][axis];
 }
 
+/*!
+ * przeciazenie operatora >> dla prostokata
+*
+*\param[in] (*this) rectangle object for input data
+*\param[in] in - input stream of coords
+*\retval data input into stream
+*/
 std::istream &operator>>(std::istream &in, Rectangle &rect) {
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 2; ++j) {
@@ -50,6 +65,13 @@ std::istream &operator>>(std::istream &in, Rectangle &rect) {
     return in;
 }
 
+/*!
+* przeciazenie operatora << dla prostokata
+*
+*\param[in] (*this) rectangle to be inputed into the stream
+*\param[in] out - output stream of coords
+*\retval data output of stream
+*/
 std::ostream &operator<<(std::ostream &out, Rectangle &Rectangle)
 {
       for (int i = 0; i < 4; ++i) {
@@ -64,7 +86,15 @@ std::ostream &operator<<(std::ostream &out, Rectangle &Rectangle)
 
 
 
-
+/*!
+* przeciazenie operatora + dla prostokata
+*
+*\param[in] (*this) rectangle of which coordinates will
+*be the LHS operands of the addition
+*\param[in] Vect - vector that will be added to every point of the
+*rectangle
+*\retval new coordinates of rectangle
+*/
 Rectangle Rectangle::operator+ (Vector<double, 2> const Vect)
 {
   for (int i = 0; i < 4; ++i) {
@@ -75,10 +105,17 @@ Rectangle Rectangle::operator+ (Vector<double, 2> const Vect)
   return (*this);
 }
 
-
+/*!
+* funckja rotacji prostokata w lewa strone (przeciwnie do wsk. zegara)
+*
+*\param[in] (*this) rectangle of which coordinates will
+*be rotated
+*\param[in] angle - angle value of the rotation
+*\retval new coordinates of rotated rectangle
+*/
 Rectangle Rectangle::AngleTrans(double Angle)
 {
-  double Punkt_0[2]={rect[0][0], rect[0][1]};
+  double Punkt_0[2]={rect[0][0], rect[0][1]};         //every point is being put into dedicated vector for the ease of evaluation 
   Vector<double, 2> p_0=Vector<double, 2> (Punkt_0);
   double Punkt_1[2]={rect[1][0], rect[1][1]};
   Vector<double, 2> p_1=Vector<double, 2> (Punkt_1);

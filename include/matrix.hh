@@ -148,6 +148,14 @@ const T &Matrix<T, dime>::operator () (unsigned int row, unsigned int column) co
     return value[row][column];
 }
 
+/*!
+* przeciazenie operatora == dla macierzy
+*
+*\param[in] (*this) - one of the matrices to be compared
+*\param[in] v - second matrix to be compared
+*\retval true - if the compared matrices are equal
+*\retval false - if not
+*/
 template<typename T, unsigned int dime>
 bool Matrix<T, dime>::operator == (Matrix<T, dime> const tmp) const {
   for (unsigned int i = 0; i < dime; ++i) {
@@ -178,6 +186,14 @@ Matrix<T, dime> Matrix<T, dime>::operator + (Matrix<T, dime> tmp) {
     return result;
 }
 
+
+/*!
+* przeciazenie operatora * dla macierzy
+*
+*\param[in] (*this) - LHS matrix of multiplication
+*\param[in] v - sRHS matrix of multiplication
+*\retval result - the result of the multiplication
+*/
 template<typename T, unsigned int dime>
 Matrix<T, dime> Matrix<T, dime>::operator * (Matrix<T, dime> const tmp)
 {
@@ -228,6 +244,14 @@ std::ostream &operator<<(std::ostream &out, const Matrix<T, dime> &mat) {
     return out;
 }
 
+/*!
+* funkcja obliczajaca wyznacznik macierzy za pomoca
+* eliminacji gaussa
+*
+*\param[in] (*this) - matrix of which determinant this function will
+* evaluate
+*\retval determinant - the determinant of the matrix
+*/
 template<typename T, unsigned int dime>
 T GaussMethod(Matrix<T, dime> mat)
 {

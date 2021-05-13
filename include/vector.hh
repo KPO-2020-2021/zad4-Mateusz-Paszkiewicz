@@ -172,7 +172,14 @@ T &Vector<T, dime>::operator[](unsigned int index) {
     return const_cast<T &>(const_cast<const Vector *>(this)->operator[](index));
 }
 
-
+/*!
+* przeciazenie operatora == dla wektora
+*
+*\param[in] (*this) - one of the vectors to be compared
+*\param[in] v - second vector to be compared
+*\retval true - if the compared vectors are equal
+*\retval false - if not
+*/
 template<typename T, unsigned int dime>
 bool Vector<T, dime>::operator == (const Vector<T, dime> v) const
   {

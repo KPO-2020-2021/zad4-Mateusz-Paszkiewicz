@@ -184,12 +184,11 @@ int main() {
       double angle;
       char axis;
 
-      std::cout<<"Please pass axis (x, y or z) and the value of angle:";
-      std::cin>>axis;
-      std::cin>>angle;
-
 
       if(Mode==1){
+        std::cout<<"Please pass the value of angle:";
+        std::cin>>angle;
+
         ObjectRect.AngleTrans(angle*M_PI/180);
 
         if (!SaveCoordsToFile("../datasets/figure.dat",ObjectRect))
@@ -201,6 +200,10 @@ int main() {
           }
       }
       else{
+        std::cout<<"Please pass axis (x, y or z) and the value of angle:";
+        std::cin>>axis;
+        std::cin>>angle;
+
         ObjectCub.AngleTrans(angle*M_PI/180,axis);
 
         if (!SaveCoordsToFile("../datasets/figure.dat",ObjectCub))
