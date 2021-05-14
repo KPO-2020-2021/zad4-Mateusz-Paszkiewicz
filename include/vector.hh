@@ -3,6 +3,16 @@
 #include "size.hh"
 #include <iostream>
 
+
+/*!
+*\brief Klasa wektora dowolnego rozmiaru, jego metody oraz
+* funkcje
+*
+* Klasa zawiera definicje, metody i funkcje wektora potrzebne do zrealizowania
+* obrotu 3D za pomoca lacza do GNUplota
+*
+*/
+tem
 template<typename T, unsigned int dime>
 class Vector {
 public:
@@ -35,14 +45,12 @@ std::ostream &operator << (std::ostream &out, Vector<T, dime> const &tmp);
 template<typename T, unsigned int dime>
 std::istream &operator >> (std::istream &in, Vector<T, dime> &tmp);
 
-
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartoscia 0.                                       |
- */
+/*!
+* Konstruktor klasy Vector.
+*
+* \param[in] - Brak argumentow.
+* \retvalue - Tablice wypelniona wartoscia 0.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime>::Vector() {
     for (unsigned int i = 0; i < dime; ++i) {
@@ -50,14 +58,12 @@ Vector<T, dime>::Vector() {
     }
 }
 
-
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu double.                             |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
- */
+/*!
+*  Konstruktor parametryczny klasy Vector.
+*
+* \param[in] - tmp - Jednowymiarowa tablica typu double.
+* \retvalue - Tablice wypelniona wartosciami podanymi w argumencie.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime>::Vector(T tmp[dime]) {
     for (unsigned int i = 0; i < dime; ++i) {
@@ -65,16 +71,14 @@ Vector<T, dime>::Vector(T tmp[dime]) {
     }
 }
 
-
-/******************************************************************************
- |  Realizuje dodawanie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik dodawania,                                   |
- |      v - drugi skladnik dodawania.                                         |
- |  Zwraca:                                                                   |
- |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
- |      na parametr.                                                          |
- */
+/*!
+* Realizuje dodawanie dwoch wektorow.
+*
+* \param[in] - this - pierwszy skladnik dodawania,
+* \param[in] - v - drugi skladnik dodawania.
+* \retvalue - Sume dwoch skladnikow przekazanych jako wskaznik
+*               na parametr.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime> Vector<T, dime>::operator + (const Vector<T, dime> v) {
     Vector<T, dime> result;
@@ -84,16 +88,14 @@ Vector<T, dime> Vector<T, dime>::operator + (const Vector<T, dime> v) {
     return result;
 }
 
-
-/******************************************************************************
- |  Realizuje odejmowanie dwoch wektorow.                                     |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik odejmowania,                                 |
- |      v - drugi skladnik odejmowania.                                       |
- |  Zwraca:                                                                   |
- |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
+/*!
+* Realizuje odejmowanie dwoch wektorow.
+*
+* \param[in] - this - pierwszy skladnik odejmowania,
+* \param[in] - v - drugi skladnik odejmowania.
+* \retvalue - Roznice dwoch skladnikow przekazanych jako wskaznik
+*               na parametr.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime> Vector<T, dime>::operator - (const Vector<T, dime> v) {
     Vector<T, dime> result;
@@ -103,16 +105,14 @@ Vector<T, dime> Vector<T, dime>::operator - (const Vector<T, dime> v) {
     return result;
 }
 
-
-/******************************************************************************
- |  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.               |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik mnozenia (wektor),                           |
- |      v - drugi skladnik mnozenia (liczba typu double).                     |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
+/*!
+*  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.
+*
+* \param[in] - this - pierwszy skladnik mnozenia (wektor),
+* \param[in] - v - drugi skladnik mnozenia (liczba typu typename).
+* \retvalue - Iloraz dwoch skladnikow przekazanych jako wskaznik
+*               na parametr.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime> Vector<T, dime>::operator * (const T &tmp) {
     Vector<T, dime> result;
@@ -122,16 +122,14 @@ Vector<T, dime> Vector<T, dime>::operator * (const T &tmp) {
     return result;
 }
 
-
-/******************************************************************************
- |  Realizuje dzielenie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - licznik dzielenia,                                             |
- |      v - mianownik dzielenia.                                              |
- |  Zwraca:                                                                   |
- |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
- |      na parametr.                                                          |
- */
+/*!
+*  Realizuje dzielenie dwoch wektorow.
+*
+* \param[in] - this - licznik dzielenia,
+* \param[in] - v - mianownik dzielenia.
+* \retvalue - Iloraz dwoch skladnikow przekazanych jako wskaznik
+*               na parametr.
+*/
 template<typename T, unsigned int dime>
 Vector<T, dime> Vector<T, dime>::operator / (const T &tmp) {
     Vector<T, dime> result;
@@ -143,14 +141,12 @@ Vector<T, dime> Vector<T, dime>::operator / (const T &tmp) {
     return result;
 }
 
-
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
- */
+/*!
+*  Funktor wektora.
+*
+* \param[in] - index - index wektora.
+* \retvalue - Wartosc wektora w danym miejscu tablicy jako stala.
+*/
 template<typename T, unsigned int dime>
 const T &Vector<T, dime>::operator [] (unsigned int index) const {
     if (index < 0 || index >= dime) {
@@ -160,15 +156,14 @@ const T &Vector<T, dime>::operator [] (unsigned int index) const {
 }
 
 
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy.                              |
- */
+/*!
+*  Funktor wektora.
+*
+* \param[in] - index wektora.
+* \retvalue - Wartosc wektora w danym miejscu tablicy.
+*/
 template<typename T, unsigned int dime>
-T &Vector<T, dime>::operator[](unsigned int index) {
+T &Vector<T, dime>::operator[] (unsigned int index) {
     return const_cast<T &>(const_cast<const Vector *>(this)->operator[](index));
 }
 
@@ -193,13 +188,12 @@ bool Vector<T, dime>::operator == (const Vector<T, dime> v) const
     return equal;
   }
 
-
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      tmp - wektor.                                                         |
- */
+/*!
+* Przeciazenie operatora <<
+*
+*\param[in] out - strumien wejsciowy,
+*\param[in] tmp - wektor.
+*/
 template<typename T, unsigned int dime>
 std::ostream &operator << (std::ostream &out, Vector<T, dime> const &tmp) {
     for (unsigned int i = 0; i < dime; ++i) {
@@ -208,13 +202,12 @@ std::ostream &operator << (std::ostream &out, Vector<T, dime> const &tmp) {
     return out;
 }
 
-
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      tmp - wektor.                                                         |
- */
+/*!
+* Przeciazenie operatora >>
+*
+*\param[in] in - strumien wyjsciowy,
+*\param[in] tmp - wektor.
+*/
 template<typename T, unsigned int dime>
 std::istream &operator >> (std::istream &in, Vector<T, dime> &tmp) {
     for (unsigned int i = 0; i < dime; ++i) {

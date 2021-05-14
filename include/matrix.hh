@@ -5,17 +5,26 @@
 #include <iostream>
 #include <cstdlib>
 
+/*!
+*\brief Klasa macierzy kwadratowej dowolnego rozmiaru, jej metody oraz
+* funkcje
+*
+* Klasa zawiera definicje, metody i funkcje macierzy potrzebne do zrealizowania
+* obrotu 3D za pomoca lacza do GNUplota.
+*
+*
+*/
 template<typename T, unsigned int dime>
 class Matrix {
 public:
 
-    T value[dime][dime];               // Wartosci macierzy
+    T value[dime][dime];
 
     Matrix();
 
-    Matrix(T [dime][dime]);            // Konstruktor klasy
+    Matrix(T [dime][dime]);
 
-    Vector<T, dime> operator * (Vector<T, dime> tmp);           // Operator mnożenia przez wektor
+    Vector<T, dime> operator * (Vector<T, dime> tmp);
 
     bool operator == (Matrix<T, dime> const tmp) const ;
 
@@ -37,19 +46,12 @@ std::ostream &operator<<(std::ostream &out, Matrix<T, dime> const &mat);
 template<typename T, unsigned int dime>
 T GaussMethod(Matrix<T, dime>);
 
-
-
-#include "../include/matrix.hh"
-#include <iostream>
-#include <cstdlib>
-
-/******************************************************************************
- |  Konstruktor klasy Matrix.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Macierz wypelnione wartoscia 0.                                       |
- */
+/*!
+* Konstruktor klasy Matrix.
+*
+*\param[in] Brak argumentow.
+*\retval Macierz wypelnione wartoscia 0.
+*/
 template<typename T, unsigned int dime>
 Matrix<T, dime>::Matrix() {
     for (unsigned int i = 0; i < dime; ++i) {
@@ -59,14 +61,12 @@ Matrix<T, dime>::Matrix() {
     }
 }
 
-
-/******************************************************************************
- |  Konstruktor parametryczny klasy Matrix.                                              |
- |  Argumenty:                                                                |
- |      tmp - dwuwymiarowa tablica z elementami typu double.                               |
- |  Zwraca:                                                                   |
- |      Macierz wypelniona wartosciami podanymi w argumencie.                 |
- */
+/*!
+* Konstruktor parametryczny klasy Matrix.
+*
+*\param[in] tmp - dwuwymiarowa tablica z elementami typu double.
+*\retval determinant -  Macierz wypelniona wartosciami podanymi w argumencie.
+*/
 template<typename T, unsigned int dime>
 Matrix<T, dime>::Matrix(T tmp[dime][dime])
 {
@@ -77,15 +77,13 @@ Matrix<T, dime>::Matrix(T tmp[dime][dime])
     }
 }
 
-
-/******************************************************************************
- |  Realizuje mnozenie macierzy przez wektor.                                 |
- |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik mnozenia,                     |
- |      v - wektor, czyli drugi skladnik mnozenia.                            |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wektor.                    |
- */
+/*!
+* Realizuje mnozenie macierzy przez wektor.
+*
+*\param[in] this - macierz, czyli pierwszy skladnik mnozenia,
+*\param[in] v - wektor, czyli drugi skladnik mnozenia.
+*\retval determinant -  Iloczyn dwoch skladnikow przekazanych jako wektor.
+*/
 template<typename T, unsigned int dime>
 Vector<T,dime> Matrix<T, dime>::operator * (Vector<T, dime> tmp) {
     Vector<T, dime> result;
@@ -97,15 +95,13 @@ Vector<T,dime> Matrix<T, dime>::operator * (Vector<T, dime> tmp) {
     return result;
 }
 
-
-/******************************************************************************
- |  Funktor macierzy                                                          |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy.                             |
- */
+/*!
+* Funktor macierzy
+*
+*\param[in] row - numer wiersza.
+*\param[in] column - numer kolumny.
+*\retval determinant -  Wartosc macierzy w danym miejscu tablicy
+*/
 template<typename T, unsigned int dime>
 T &Matrix<T, dime>::operator()(unsigned int row, unsigned int column)
 {
@@ -122,15 +118,13 @@ T &Matrix<T, dime>::operator()(unsigned int row, unsigned int column)
     return value[row][column];
 }
 
-
-/******************************************************************************
- |  Funktor macierzy                                                          |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy jako stala.                  |
- */
+/*!
+* Funktor macierzy
+*
+*\param[in] row - numer wiersza.
+*\param[in] column - numer kolumny.
+*\retval determinant -  Wartosc macierzy w danym miejscu tablicy jako stala.
+*/
 template<typename T, unsigned int dime>
 const T &Matrix<T, dime>::operator () (unsigned int row, unsigned int column) const {
 
@@ -167,14 +161,13 @@ bool Matrix<T, dime>::operator == (Matrix<T, dime> const tmp) const {
   return true;
 }
 
-/******************************************************************************
- |  Przeciążenie dodawania macierzy                                                          |
- |  Argumenty:                                                                |
- |      this - macierz, czyli pierwszy skladnik dodawania,                     |
- |      v - wektor, czyli drugi skladnik dodawania.                                               |
- |  Zwraca:                                                                   |
- |      Macierz - iloczyn dwóch podanych macierzy.                  |
- */
+/*!
+* Przeciążenie dodawania macierzy
+*
+*\param[in] this - macierz, czyli pierwszy skladnik dodawania,
+*\param[in] v - wektor, czyli drugi skladnik dodawania.
+*\retvalue - Macierz - iloczyn dwóch podanych macierzy.
+*/
 template<typename T, unsigned int dime>
 Matrix<T, dime> Matrix<T, dime>::operator + (Matrix<T, dime> tmp) {
     Matrix<T, dime> result;
@@ -210,12 +203,12 @@ Matrix<T, dime> Matrix<T, dime>::operator * (Matrix<T, dime> const tmp)
     return result;
 }
 
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                         |
- */
+/*!
+* Przeciazenie operatora >>
+*
+*\param[in] in - strumien wyjsciowy,
+*\param[in] mat - macierz.
+*/
 template<typename T, unsigned int dime>
 std::istream &operator>>(std::istream &in, Matrix<T, dime> &mat) {
     for (unsigned int i = 0; i < dime; ++i) {
@@ -226,13 +219,12 @@ std::istream &operator>>(std::istream &in, Matrix<T, dime> &mat) {
     return in;
 }
 
-
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - macierz.                                                        |
- */
+/*!
+* Przeciazenie operatora <<
+*
+*\param[in] out - strumien wejsciowy,
+*\param[in]  mat - macierz.
+*/
 template<typename T, unsigned int dime>
 std::ostream &operator<<(std::ostream &out, const Matrix<T, dime> &mat) {
     for (unsigned int i = 0; i < dime; ++i) {
