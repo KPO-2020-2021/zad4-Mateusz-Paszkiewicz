@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Rotation: /home/kalafiorek/Programowanie_obj2021/zad4-Mateusz-Paszkiewicz/include/cuboid.hh Source File</title>
+<title>Rotation: include/cuboid.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,35 +89,35 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_cuboid.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cuboid.html">Cuboid</a>{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">double</span> point[8][3];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="class_cuboid.html#a1abf60e93d024b7a01ee5b1a48f1f08a">Cuboid</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="class_cuboid.html#a1abf60e93d024b7a01ee5b1a48f1f08a">Cuboid</a>(<span class="keywordtype">double</span> [8][3]);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#a3387e02a6d349b8f4613fb94e5c94f58">operator * </a>(<a class="code" href="class_matrix.html">Matrix&lt;double, 3&gt;</a> &amp;);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#ae4e1f56db0d07a73001d77e06e6715d0">operator + </a>(<a class="code" href="class_vector.html">Vector&lt;double, 3&gt;</a> &amp;);</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_cuboid.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cuboid.html">Cuboid</a>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">operator () </a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">double</span> point[8][3];</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">double</span> &amp;<a class="code" href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">operator () </a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="class_cuboid.html#a1abf60e93d024b7a01ee5b1a48f1f08a">Cuboid</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#aab0f178d1c83490b3913996614f72bc4">AngleTrans</a>(<span class="keywordtype">double</span> Angle, <span class="keywordtype">char</span> axis);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_cuboid.html#a1abf60e93d024b7a01ee5b1a48f1f08a">Cuboid</a>(<span class="keywordtype">double</span> [8][3]);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#a0ae1039afcf2a9d668023847d1339478">operator * </a>(<a class="code" href="class_matrix.html">Matrix3x3</a> &amp;);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#ae4e1f56db0d07a73001d77e06e6715d0">operator + </a>(<a class="code" href="class_vector.html">Vector&lt;double, 3&gt;</a> &amp;);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;<a class="code" href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">operator () </a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">double</span> &amp;<a class="code" href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">operator () </a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="class_cuboid.html">Cuboid</a> <a class="code" href="class_cuboid.html#aab0f178d1c83490b3913996614f72bc4">AngleTrans</a>(<span class="keywordtype">double</span> Angle, <span class="keywordtype">char</span> axis);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_cuboid_html_a2a50a1436eb8a46d552fc6f49a1e569c"><div class="ttname"><a href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">Cuboid::operator()</a></div><div class="ttdeci">const double &amp; operator()(unsigned int, unsigned int) const</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:78</div></div>
-<div class="ttc" id="aclass_cuboid_html_a3387e02a6d349b8f4613fb94e5c94f58"><div class="ttname"><a href="class_cuboid.html#a3387e02a6d349b8f4613fb94e5c94f58">Cuboid::operator*</a></div><div class="ttdeci">Cuboid operator*(Matrix&lt; double, 3 &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:38</div></div>
-<div class="ttc" id="aclass_cuboid_html_ae4e1f56db0d07a73001d77e06e6715d0"><div class="ttname"><a href="class_cuboid.html#ae4e1f56db0d07a73001d77e06e6715d0">Cuboid::operator+</a></div><div class="ttdeci">Cuboid operator+(Vector&lt; double, 3 &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:60</div></div>
-<div class="ttc" id="aclass_cuboid_html_aab0f178d1c83490b3913996614f72bc4"><div class="ttname"><a href="class_cuboid.html#aab0f178d1c83490b3913996614f72bc4">Cuboid::AngleTrans</a></div><div class="ttdeci">Cuboid AngleTrans(double Angle, char axis)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:121</div></div>
-<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">Klasa wektora dowolnego rozmiaru, jego metody oraz funkcje.</div><div class="ttdef"><b>Definition:</b> vector.hh:17</div></div>
+<div class="ttc" id="aclass_cuboid_html_a2a50a1436eb8a46d552fc6f49a1e569c"><div class="ttname"><a href="class_cuboid.html#a2a50a1436eb8a46d552fc6f49a1e569c">Cuboid::operator()</a></div><div class="ttdeci">const double &amp; operator()(unsigned int, unsigned int) const</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:84</div></div>
+<div class="ttc" id="aclass_cuboid_html_ae4e1f56db0d07a73001d77e06e6715d0"><div class="ttname"><a href="class_cuboid.html#ae4e1f56db0d07a73001d77e06e6715d0">Cuboid::operator+</a></div><div class="ttdeci">Cuboid operator+(Vector&lt; double, 3 &gt; &amp;)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:66</div></div>
+<div class="ttc" id="aclass_cuboid_html_aab0f178d1c83490b3913996614f72bc4"><div class="ttname"><a href="class_cuboid.html#aab0f178d1c83490b3913996614f72bc4">Cuboid::AngleTrans</a></div><div class="ttdeci">Cuboid AngleTrans(double Angle, char axis)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:127</div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">Klasa wektora dowolnego rozmiaru, jego metody oraz funkcje.</div><div class="ttdef"><b>Definition:</b> vector.hh:16</div></div>
 <div class="ttc" id="aclass_cuboid_html_a1abf60e93d024b7a01ee5b1a48f1f08a"><div class="ttname"><a href="class_cuboid.html#a1abf60e93d024b7a01ee5b1a48f1f08a">Cuboid::Cuboid</a></div><div class="ttdeci">Cuboid()</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:10</div></div>
 <div class="ttc" id="aclass_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Klasa macierzy kwadratowej dowolnego rozmiaru, jej metody oraz funkcje.</div><div class="ttdef"><b>Definition:</b> matrix.hh:18</div></div>
-<div class="ttc" id="aclass_cuboid_html"><div class="ttname"><a href="class_cuboid.html">Cuboid</a></div><div class="ttdef"><b>Definition:</b> cuboid.hh:21</div></div>
+<div class="ttc" id="aclass_cuboid_html_a0ae1039afcf2a9d668023847d1339478"><div class="ttname"><a href="class_cuboid.html#a0ae1039afcf2a9d668023847d1339478">Cuboid::operator*</a></div><div class="ttdeci">Cuboid operator*(Matrix3x3 &amp;)</div><div class="ttdef"><b>Definition:</b> cuboid.cpp:44</div></div>
+<div class="ttc" id="aclass_cuboid_html"><div class="ttname"><a href="class_cuboid.html">Cuboid</a></div><div class="ttdoc">Klasa prostopadloscianu w postaci tablicy dwuwymiarowej oraz jej metody.</div><div class="ttdef"><b>Definition:</b> cuboid.hh:31</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

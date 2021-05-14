@@ -66,7 +66,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="http://www.repostatus.org/#active"><object type="image/svg+xml" data="http://www.repostatus.org/badges/latest/active.svg" style="pointer-events: none;">Project Status: Active – The project has reached a stable, usable state and is being actively developed.</object></a> <a href="https://travis-ci.org/bsamseth/cpp-project"><object type="image/svg+xml" data="https://travis-ci.org/bsamseth/cpp-project.svg?branch=master" style="pointer-events: none;">Build Status</object></a> <a href="https://ci.appveyor.com/project/bsamseth/cpp-project/branch/master"><img src="https://ci.appveyor.com/api/projects/status/g9bh9kjl6ocvsvse/branch/master?svg=true" alt="Build status" class="inline"/></a> <a href="https://coveralls.io/github/bsamseth/cpp-project?branch=master"><object type="image/svg+xml" data="https://coveralls.io/repos/github/bsamseth/cpp-project/badge.svg?branch=master" style="pointer-events: none;">Coverage Status</object></a> <a href="https://codecov.io/gh/bsamseth/cpp-project"><object type="image/svg+xml" data="https://codecov.io/gh/bsamseth/cpp-project/branch/master/graph/badge.svg" style="pointer-events: none;">codecov</object></a> <a href="https://www.codacy.com/app/bsamseth/cpp-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bsamseth/cpp-project&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/eb004322b0d146239a57eb242078e179" alt="Codacy Badge" class="inline"/></a> <a href="https://lgtm.com/projects/g/bsamseth/cpp-project/context:cpp"><object type="image/svg+xml" data="https://img.shields.io/lgtm/grade/cpp/g/bsamseth/cpp-project.svg?logo=lgtm&amp;logoWidth=18" style="pointer-events: none;">Language grade: C/C++</object></a> <a href="https://lgtm.com/projects/g/bsamseth/cpp-project/alerts/"><object type="image/svg+xml" data="https://img.shields.io/lgtm/alerts/g/bsamseth/cpp-project.svg?logo=lgtm&amp;logoWidth=18" style="pointer-events: none;">Total alerts</object></a> <a href="https://github.com/bsamseth/cpp-project/blob/master/LICENSE"><object type="image/svg+xml" data="https://img.shields.io/badge/license-Unlicense-blue.svg" style="pointer-events: none;">license</object></a> <a href="https://github.com/Aaronepower/tokei"><img src="https://tokei.rs/b1/github/bsamseth/cpp-project" alt="Lines of Code" class="inline"/></a> <a href="http://isitmaintained.com/project/bsamseth/cpp-project" title="Average time to resolve an issue"><object type="image/svg+xml" data="http://isitmaintained.com/badge/resolution/bsamseth/cpp-project.svg" style="pointer-events: none;">Average time to resolve an issue</object></a> <a href="http://isitmaintained.com/project/bsamseth/cpp-project" title="Percentage of issues still open"><object type="image/svg+xml" data="http://isitmaintained.com/badge/open/bsamseth/cpp-project.svg" style="pointer-events: none;">Percentage of issues still open</object></a></p>
-<h1><a class="anchor" id="autotoc_md162"></a>
+<h1><a class="anchor" id="autotoc_md0"></a>
 Boiler plate for C++ projects</h1>
 <p>This is a boiler plate for C++ projects. What you get:</p>
 <ul>
@@ -78,7 +78,7 @@ Boiler plate for C++ projects</h1>
 <li>Code documentation with <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a></li>
 </ul>
 <p><img src="https://i.imgur.com/foymVfy.gif" alt="Demo of usage" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md163"></a>
+<h2><a class="anchor" id="autotoc_md1"></a>
 Structure</h2>
 <div class="fragment"><div class="line">.</div>
 <div class="line">├── CMakeLists.txt</div>
@@ -97,7 +97,7 @@ Structure</h2>
 <div class="fragment"><div class="line">add_executable(main app/main.cpp)   # Name of exec. and location of file.</div>
 <div class="line">target_link_libraries(main PRIVATE ${LIBRARY_NAME})  # Link the executable to lib built from src/*.cpp (if it uses it).</div>
 </div><!-- fragment --><p>You can find the example source code that builds the <code>main</code> executable in <a href="app/main.cpp">app/main.cpp</a> under the <code>Build</code> section in <a href="CMakeLists.txt">CMakeLists.txt</a>. If the executable you made does not use the library in [src/](src), then only the first line is needed.</p>
-<h2><a class="anchor" id="autotoc_md164"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Building</h2>
 <p>Build by making a build directory (i.e. <code>build/</code>), run <code>cmake</code> in that dir, and then use <code>make</code> to build the desired target.</p>
 <p>Example:</p>
@@ -108,23 +108,23 @@ Building</h2>
 <div class="line">&gt; make test      # Makes and runs the tests.</div>
 <div class="line">&gt; make coverage  # Generate a coverage report.</div>
 <div class="line">&gt; make doc       # Generate html documentation.</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md165"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
 .gitignore</h2>
 <p>The <a href=".gitignore">.gitignore</a> file is a copy of the <a href="https://github.com/github/gitignore/blob/master/C%2B%2B.gitignore">Github C++.gitignore file</a>, with the addition of ignoring the build directory (<code>build/</code>).</p>
-<h2><a class="anchor" id="autotoc_md166"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Services</h2>
 <p>If the repository is activated with Travis-CI, then unit tests will be built and executed on each commit. The same is true if the repository is activated with Appveyor.</p>
 <p>If the repository is activated with Coveralls/Codecov, then deployment to Travis will also calculate code coverage and upload this to Coveralls.io and/or Codecov.io</p>
-<h2><a class="anchor" id="autotoc_md167"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Setup</h2>
-<h3><a class="anchor" id="autotoc_md168"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Using the GitHub template</h3>
 <p>Click the <code>Use this template</code> button to make a new repository from this template.</p>
 <p><b>NB</b>: GitHub templates do not carry over submodules, which means you need to add those back <em>before</em> you can build the project. Run the following after you have generated your new project: </p><div class="fragment"><div class="line">&gt; git clone https://github.com/&lt;your-username&gt;/&lt;your-repo-name&gt;</div>
 <div class="line">&gt; git submodule add https://github.com/onqtam/doctest.git external/doctest</div>
 <div class="line">&gt; git commit -a --amend --no-edit</div>
 <div class="line">&gt; git push --force</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md169"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
 From command line</h3>
 <p>When starting a new project, you probably don't want the history of this repository. To start fresh you can use the <a href="setup.sh">setup script</a> as follows: </p><div class="fragment"><div class="line">&gt; git clone --recurse-submodules https://github.com/bsamseth/cpp-project  # Or use ssh-link if you like.</div>
 <div class="line">&gt; cd cpp-project</div>

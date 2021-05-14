@@ -11,8 +11,8 @@ var searchData=
   ['currenttestcasestats_40',['CurrentTestCaseStats',['../structdoctest_1_1_current_test_case_stats.html',1,'doctest']]],
   ['czypolaczeniejestzainicjowane_41',['CzyPolaczenieJestZainicjowane',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#af8be8aeb3b1b524fab67d4411cba5b9e',1,'PzG::LaczeDoGNUPlota']]],
   ['czywyswietlackomunikaty_42',['CzyWyswietlacKomunikaty',['../class_pz_g_1_1_lacze_do_g_n_u_plota.html#a5e4f3a226ed36f7110032d802d84847c',1,'PzG::LaczeDoGNUPlota']]],
-  ['change_20log_43',['Change Log',['../md__home_kalafiorek__programowanie_obj2021_zad4-_mateusz-_paszkiewicz_external_doctest__c_h_a_n_g_e_l_o_g.html',1,'']]],
-  ['contributing_44',['Contributing',['../md__home_kalafiorek__programowanie_obj2021_zad4-_mateusz-_paszkiewicz_external_doctest__c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]],
-  ['command_20line_45',['Command line',['../md__home_kalafiorek__programowanie_obj2021_zad4-_mateusz-_paszkiewicz_external_doctest_doc_markdown_commandline.html',1,'']]],
-  ['configuration_46',['Configuration',['../md__home_kalafiorek__programowanie_obj2021_zad4-_mateusz-_paszkiewicz_external_doctest_doc_markdown_configuration.html',1,'']]]
+  ['change_20log_43',['Change Log',['../md_external_doctest__c_h_a_n_g_e_l_o_g.html',1,'']]],
+  ['contributing_44',['Contributing',['../md_external_doctest__c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]],
+  ['command_20line_45',['Command line',['../md_external_doctest_doc_markdown_commandline.html',1,'']]],
+  ['configuration_46',['Configuration',['../md_external_doctest_doc_markdown_configuration.html',1,'']]]
 ];

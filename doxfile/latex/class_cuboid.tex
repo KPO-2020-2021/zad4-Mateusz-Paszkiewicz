@@ -1,5 +1,14 @@
 \hypertarget{class_cuboid}{}\doxysection{Cuboid Class Reference}
 \label{class_cuboid}\index{Cuboid@{Cuboid}}
+
+
+Klasa prostopadloscianu w postaci tablicy dwuwymiarowej oraz jej metody.  
+
+
+
+
+{\ttfamily \#include $<$cuboid.\+hh$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -7,7 +16,7 @@
 \item 
 \mbox{\hyperlink{class_cuboid_a4a5e182eb2797a62516ba9cf84067d99}{Cuboid}} (double\mbox{[}8\mbox{]}\mbox{[}3\mbox{]})
 \item 
-\mbox{\hyperlink{class_cuboid}{Cuboid}} \mbox{\hyperlink{class_cuboid_a3387e02a6d349b8f4613fb94e5c94f58}{operator$\ast$}} (\mbox{\hyperlink{class_matrix}{Matrix}}$<$ double, 3 $>$ \&)
+\mbox{\hyperlink{class_cuboid}{Cuboid}} \mbox{\hyperlink{class_cuboid_a0ae1039afcf2a9d668023847d1339478}{operator$\ast$}} (\mbox{\hyperlink{class_matrix}{Matrix3x3}} \&)
 \item 
 \mbox{\hyperlink{class_cuboid}{Cuboid}} \mbox{\hyperlink{class_cuboid_ae4e1f56db0d07a73001d77e06e6715d0}{operator+}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double, 3 $>$ \&)
 \item 
@@ -24,6 +33,11 @@ double \& \mbox{\hyperlink{class_cuboid_ab04adff05fcf0693c912c2ce1588fea3}{opera
 double {\bfseries point} \mbox{[}8\mbox{]}\mbox{[}3\mbox{]}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Klasa prostopadloscianu w postaci tablicy dwuwymiarowej oraz jej metody. 
+
+Klasa prostopadloscianu w postaci tablicy 8x3 gdzie kazdy kazdy z rzedow jest zestawem punktow x, y ,z oraz metody i funkcje potrzebne do zrealizowania obrotow 3D. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_cuboid_a1abf60e93d024b7a01ee5b1a48f1f08a}\label{class_cuboid_a1abf60e93d024b7a01ee5b1a48f1f08a}} 
@@ -126,13 +140,13 @@ funktor () prostopadloscianu
 {\em const} & value of the coordinate of indicated values \\
 \hline
 \end{DoxyRetVals}
-\mbox{\Hypertarget{class_cuboid_a3387e02a6d349b8f4613fb94e5c94f58}\label{class_cuboid_a3387e02a6d349b8f4613fb94e5c94f58}} 
+\mbox{\Hypertarget{class_cuboid_a0ae1039afcf2a9d668023847d1339478}\label{class_cuboid_a0ae1039afcf2a9d668023847d1339478}} 
 \index{Cuboid@{Cuboid}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Cuboid@{Cuboid}}
 \doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_cuboid}{Cuboid}} Cuboid\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}$<$ double, 3 $>$ \&}]{tmp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cuboid}{Cuboid}} Cuboid\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix3x3}} \&}]{tmp }\end{DoxyParamCaption})}
 
-przeciazenie operatora mnozenia dla dwoch macierzy
+przeciazenie operatora mnozenia dla prostopadloscianu (U\+W\+A\+GA) to dzialanie wychodzi poza matamtyczne definicje i jest stworzone wylacznie dla prostoty rachunkow w dalszych czesciach implementacji. To przeciazenie polega przemnozeniu macierzy przez kazdy z punktow prostopadloscianu (czyli przez zestaw wspolrzednych jako kazdy rzad tablicy cuboid) tak samo jak przez wektor (takie mnozenie macierzy przez wektor 8 razy)
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -170,5 +184,5 @@ przeciazenie operatora dodawania dla dwoch macierzy
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/kalafiorek/\+Programowanie\+\_\+obj2021/zad4-\/\+Mateusz-\/\+Paszkiewicz/include/cuboid.\+hh\item 
-/home/kalafiorek/\+Programowanie\+\_\+obj2021/zad4-\/\+Mateusz-\/\+Paszkiewicz/src/cuboid.\+cpp\end{DoxyCompactItemize}
+include/cuboid.\+hh\item 
+src/cuboid.\+cpp\end{DoxyCompactItemize}

@@ -18,6 +18,16 @@
 //
 
 
+/*!
+*\brief Klasa prostopadloscianu w postaci tablicy dwuwymiarowej
+* oraz jej metody.
+*
+*
+* Klasa prostopadloscianu w postaci tablicy 8x3 gdzie kazdy
+* kazdy z rzedow jest zestawem punktow x, y ,z oraz metody i funkcje
+* potrzebne do zrealizowania obrotow 3D.
+*
+*/
 class Cuboid{
 public:
 
@@ -27,9 +37,9 @@ public:
 
   Cuboid(double [8][3]);
 
-  Cuboid operator * (Matrix<double, 3> &);
+  Cuboid operator * (Matrix3x3 &);
 
-  Cuboid operator + (Vector<double, 3> &);
+  Cuboid operator + (Vector3 &);
 
   const double &operator () (unsigned int, unsigned int) const;
 

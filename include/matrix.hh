@@ -37,6 +37,9 @@ public:
     const T &operator () (unsigned int row, unsigned int column) const;
 };
 
+typedef Matrix<double, 2> Matrix2x2;
+typedef Matrix<double, 3> Matrix3x3;
+
 template<typename T, unsigned int dime>
 std::istream &operator>>(std::istream &in, Matrix<T, dime> &mat);
 

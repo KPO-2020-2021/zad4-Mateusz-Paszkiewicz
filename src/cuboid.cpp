@@ -29,13 +29,19 @@ Cuboid::Cuboid(double tmp[8][3])
   }
 
   /*!
-   * przeciazenie operatora mnozenia dla dwoch macierzy
+  * przeciazenie operatora mnozenia dla prostopadloscianu
+  * (UWAGA) to dzialanie wychodzi poza matamtyczne definicje
+  * i jest stworzone wylacznie dla prostoty rachunkow w dalszych
+  * czesciach implementacji. To przeciazenie polega przemnozeniu
+  * macierzy przez kazdy z punktow prostopadloscianu (czyli przez
+  * zestaw wspolrzednych jako kazdy rzad tablicy cuboid) tak samo
+  * jak przez wektor (takie mnozenie macierzy przez wektor 8 razy)
   *
   *\param[in] (*this) - LHS operand of multiplication
   *\param[in] tmp - RHS operand of multiplication
   *\retval result of multiplication of (*this) and tmp
   */
-Cuboid Cuboid::operator * (Matrix<double, 3> &tmp)
+Cuboid Cuboid::operator * (Matrix3x3 &tmp)
   {
     double temp1, temp2;
 
@@ -57,7 +63,7 @@ Cuboid Cuboid::operator * (Matrix<double, 3> &tmp)
   *\param[in] tmp - RHS operand of addition
   *\retval result of addition of (*this) and tmp
   */
-Cuboid Cuboid::operator + (Vector<double, 3> &tmp)
+Cuboid Cuboid::operator + (Vector3 &tmp)
   {
     for(int i=0; i<8; i++) {
       for(int j=0; j<3; j++) {
@@ -123,21 +129,21 @@ Cuboid Cuboid::AngleTrans(double Angle, char axis)
   if(axis=='z')
     {
       double TransX[][3]={{cos(Angle),-sin(Angle),0},{sin(Angle),cos(Angle),0},{0,0,1}};
-      Matrix<double, 3> TransMat=Matrix<double, 3>(TransX);
+      Matrix3x3 TransMat=Matrix3x3(TransX);
 
       (*this)=(*this)*TransMat;
     }
   else if(axis=='y')
     {
       double TransY[][3]={{cos(Angle),0,-sin(Angle)},{0,1,0},{sin(Angle),0,cos(Angle)}};
-      Matrix<double, 3> TransMat=Matrix<double, 3>(TransY);
+      Matrix3x3 TransMat=Matrix3x3(TransY);
 
       (*this)=(*this)*TransMat;
     }
   else if(axis=='x')
   {
     double TransZ[][3]={{1,0,0},{0,cos(Angle),-sin(Angle)},{0,sin(Angle),cos(Angle)}};
-    Matrix<double, 3> TransMat=Matrix<double, 3>(TransZ);
+    Matrix3x3 TransMat=Matrix3x3(TransZ);
 
     (*this)=(*this)*TransMat;
   }

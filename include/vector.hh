@@ -12,7 +12,6 @@
 * obrotu 3D za pomoca lacza do GNUplota
 *
 */
-tem
 template<typename T, unsigned int dime>
 class Vector {
 public:
@@ -38,6 +37,9 @@ public:
     bool operator == (const Vector<T, dime> ) const;
 
 };
+
+typedef Vector<double, 2> Vector2;
+typedef Vector<double, 3> Vector3;
 
 template<typename T, unsigned int dime>
 std::ostream &operator << (std::ostream &out, Vector<T, dime> const &tmp);
