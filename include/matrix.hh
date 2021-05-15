@@ -4,6 +4,7 @@
 #include "vector.hh"
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 /*!
 *\brief Klasa macierzy kwadratowej dowolnego rozmiaru, jej metody oraz
@@ -35,10 +36,13 @@ public:
     T  &operator () (unsigned int row, unsigned int column);
 
     const T &operator () (unsigned int row, unsigned int column) const;
+
+    void TransFill(Vector3, double &, char &);
 };
 
 typedef Matrix<double, 2> Matrix2x2;
 typedef Matrix<double, 3> Matrix3x3;
+typedef Matrix<double, 4> Matrix4x4;
 
 template<typename T, unsigned int dime>
 std::istream &operator>>(std::istream &in, Matrix<T, dime> &mat);
@@ -288,4 +292,44 @@ T GaussMethod(Matrix<T, dime> mat)
     }
 
    return determinant;
+}
+
+template<typename T,unsigned int dime>
+void Matrix<T, dime>::TransFill(Vector3 TransVector, double &Angle, char &axis)
+{
+  if(dime!=4)
+    std::cout<<"Error! Wrong matrix size!";
+  else
+    {
+      if(axis=='z')
+        {
+          double TransX[][4]={{cos(Angle),-sin(Angle),0,0},{sin(Angle),cos(Angle),0,0},{0,0,1,0},{0,0,0,1}};
+          Matrix4x4 TransMat=Matrix4x4(TransX);
+
+          double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};
+          Matrix4x4 VecMatrix=Matrix4x4(TransVec);
+
+          (*this)=VecMatrix*TransMat;
+        }
+      else if(axis=='y')
+        {
+          double TransY[][4]={{cos(Angle),0,-sin(Angle),0},{0,1,0,0},{sin(Angle),0,cos(Angle),0},{0,0,0,1}};
+          Matrix4x4 TransMat=Matrix4x4(TransY);
+
+          double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};
+          Matrix4x4 VecMatrix=Matrix4x4(TransVec);
+
+          (*this)=VecMatrix*TransMat;
+        }
+      else if(axis=='x')
+      {
+        double TransZ[][4]={{1,0,0,0},{0,cos(Angle),-sin(Angle),0},{0,sin(Angle),cos(Angle),0},{0,0,0,1}};
+        Matrix4x4 TransMat=Matrix4x4(TransZ);
+
+        double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};
+        Matrix4x4 VecMatrix=Matrix4x4(TransVec);
+
+        (*this)=VecMatrix*TransMat;
+      }
+    }
 }
