@@ -17,9 +17,10 @@
 */
 template<typename T, unsigned int dime>
 class Matrix {
-public:
-
+private:
     T value[dime][dime];
+
+public:
 
     Matrix();
 
@@ -297,13 +298,15 @@ T GaussMethod(Matrix<T, dime> mat)
 template<typename T,unsigned int dime>
 void Matrix<T, dime>::TransFill(Vector3 TransVector, double &Angle, char &axis)
 {
+  double AngleRad=Angle*M_PI/180;
+
   if(dime!=4)
     std::cout<<"Error! Wrong matrix size!";
   else
     {
       if(axis=='z')
         {
-          double TransX[][4]={{cos(Angle),-sin(Angle),0,0},{sin(Angle),cos(Angle),0,0},{0,0,1,0},{0,0,0,1}};
+          double TransX[][4]={{cos(AngleRad),-sin(AngleRad),0,0},{sin(AngleRad),cos(AngleRad),0,0},{0,0,1,0},{0,0,0,1}};
           Matrix4x4 TransMat=Matrix4x4(TransX);
 
           double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};
@@ -313,7 +316,7 @@ void Matrix<T, dime>::TransFill(Vector3 TransVector, double &Angle, char &axis)
         }
       else if(axis=='y')
         {
-          double TransY[][4]={{cos(Angle),0,-sin(Angle),0},{0,1,0,0},{sin(Angle),0,cos(Angle),0},{0,0,0,1}};
+          double TransY[][4]={{cos(AngleRad),0,-sin(AngleRad),0},{0,1,0,0},{sin(AngleRad),0,cos(AngleRad),0},{0,0,0,1}};
           Matrix4x4 TransMat=Matrix4x4(TransY);
 
           double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};
@@ -323,7 +326,7 @@ void Matrix<T, dime>::TransFill(Vector3 TransVector, double &Angle, char &axis)
         }
       else if(axis=='x')
       {
-        double TransZ[][4]={{1,0,0,0},{0,cos(Angle),-sin(Angle),0},{0,sin(Angle),cos(Angle),0},{0,0,0,1}};
+        double TransZ[][4]={{1,0,0,0},{0,cos(AngleRad),-sin(AngleRad),0},{0,sin(AngleRad),cos(AngleRad),0},{0,0,0,1}};
         Matrix4x4 TransMat=Matrix4x4(TransZ);
 
         double TransVec[][4]={{1,0,0,TransVector[0]},{0,1,0,TransVector[1]},{0,0,1,TransVector[2]},{0,0,0,1}};

@@ -29,9 +29,9 @@
 *
 */
 class Cuboid{
-public:
-
+private:
   double point[8][3];
+public:
 
   Cuboid();
 
@@ -46,5 +46,5 @@ public:
   double &operator () (unsigned int, unsigned int);
 
   Cuboid AngleTrans(double Angle, char axis);
-  
+
 };
